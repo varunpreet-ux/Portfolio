@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
       { value: "<5 min", label: "Campaign Preparation Time" }
     ],
     imageAlt: "AI-Powered Cinematic Creation Ecosystem Header",
-    mockupUrl: "/src/assets/images/case-studies/evil-genius/Thumbnail.png",
+    mockupUrl: "./assets/images/case-studies/evil-genius/Thumbnail.png",
     overview: "Tabletop role-playing platforms have traditionally required significant effort from creators, players, and Game Masters. Creators spend hours converting content into platform-compatible formats, players frequently interrupt gameplay to search through hundreds of pages of rules, and Game Masters invest substantial time preparing campaigns, encounters, characters, and storylines before every session. To address these challenges, I designed a suite of AI-powered workflows that reduced preparation effort, improved information accessibility, and accelerated content creation across the platform.",
     businessProblem: "The platform was being positioned as a modern cinematic alternative to traditional tabletop role-playing tools. The challenge was identifying areas where emerging AI capabilities could create genuine user value while helping the platform establish a differentiated market position. Business goals included increasing creator productivity, accelerating content publishing, reducing gameplay interruptions, improving campaign preparation workflows, and supporting future premium experiences.",
     userProblem: "As I explored creator, player, and Game Master workflows, a recurring pattern emerged. Users were not looking for AI to replace creativity. They wanted AI to eliminate repetitive work. Across every workflow, users still wanted ownership over the final outcome. The opportunity was not automation; it was acceleration.",
@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
       { value: "94%", label: "Nurse Direct Adoption Rate" }
     ],
     imageAlt: "HealthSync Mobile Interface Mockup",
-    mockupUrl: "/src/assets/images/case-studies/personality-plus/Landing Page Before login wide.png",
+    mockupUrl: "./assets/images/case-studies/personality-plus/Landing Page Before login wide.png",
     overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes.",
     businessProblem: "The hiring process remains heavily dependent on static documents.\n\nWhile resumes effectively communicate qualifications, they often fail to capture qualities that recruiters evaluate during interviews, including:",
     userProblem: "Nurses are constantly on their feet, doing tasks with gloved hands using shared tablets. Existing legacy interfaces required them to go through 7 distinct tabs, select microscopic dropdowns, and manually type vital readings under stressful conditions.",

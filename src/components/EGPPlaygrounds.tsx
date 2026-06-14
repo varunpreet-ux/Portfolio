@@ -45,10 +45,10 @@ const initiatives: InitiativeItem[] = [
     metric: '92% Setup Velocity',
     metricLabel: 'Instant chapters & hierarchy generation from bulk sources',
     images: [
-      '/src/assets/images/case-studies/evil-genius/Create new product - Title.png',
-      '/src/assets/images/case-studies/evil-genius/Add section-1.png',
-      '/src/assets/images/case-studies/evil-genius/Add section-2.png',
-      '/src/assets/images/case-studies/evil-genius/Add section.png'
+      './assets/images/case-studies/evil-genius/Create new product - Title.png',
+      './assets/images/case-studies/evil-genius/Add section-1.png',
+      './assets/images/case-studies/evil-genius/Add section-2.png',
+      './assets/images/case-studies/evil-genius/Add section.png'
     ],
     imageAlts: [
       'AI Ingestion Dashboard showing structured chapters',
@@ -78,11 +78,11 @@ const initiatives: InitiativeItem[] = [
     metric: '<260ms Query Latency',
     metricLabel: 'Instant rule verification with direct PDF links',
     images: [
-      '/src/assets/images/case-studies/evil-genius/Squad Details.png',
-      '/src/assets/images/case-studies/evil-genius/Refence guide.png',
-      '/src/assets/images/case-studies/evil-genius/Refence guide-2.png',
-      '/src/assets/images/case-studies/evil-genius/Refence guide-3.png',
-      '/src/assets/images/case-studies/evil-genius/Refence guide-1.png'
+      './assets/images/case-studies/evil-genius/Squad Details.png',
+      './assets/images/case-studies/evil-genius/Refence guide.png',
+      './assets/images/case-studies/evil-genius/Refence guide-2.png',
+      './assets/images/case-studies/evil-genius/Refence guide-3.png',
+      './assets/images/case-studies/evil-genius/Refence guide-1.png'
     ],
     imageAlts: [
       'Companion HUD Overlay Layout preview',
@@ -111,10 +111,10 @@ const initiatives: InitiativeItem[] = [
     metric: '100% Asset Adherence',
     metricLabel: 'Zero mismatched prompt failures or ratio errors',
     images: [
-      '/src/assets/images/case-studies/evil-genius/Persona - Edit mode 1.png',
-      '/src/assets/images/case-studies/evil-genius/Persona - Edit mode-2.png',
-      '/src/assets/images/case-studies/evil-genius/Persona - Edit mode-3.png',
-      '/src/assets/images/case-studies/evil-genius/Persona - Edit mode-4.png'
+      './assets/images/case-studies/evil-genius/Persona - Edit mode 1.png',
+      './assets/images/case-studies/evil-genius/Persona - Edit mode-2.png',
+      './assets/images/case-studies/evil-genius/Persona - Edit mode-3.png',
+      './assets/images/case-studies/evil-genius/Persona - Edit mode-4.png'
     ],
     imageAlts: [
       'Character Avatar Configurator UI',
@@ -145,12 +145,12 @@ const initiatives: InitiativeItem[] = [
     metric: '5x Prep Speedup',
     metricLabel: 'Under 40 seconds to compile complete challenge loops',
     images: [
-      '/src/assets/images/case-studies/evil-genius/Adventure Hooks.png',
-      '/src/assets/images/case-studies/evil-genius/Plot.png',
-      '/src/assets/images/case-studies/evil-genius/Villains.png',
-      '/src/assets/images/case-studies/evil-genius/Helpful NPCs.png',
-      '/src/assets/images/case-studies/evil-genius/Stat Blocks.png',
-      '/src/assets/images/case-studies/evil-genius/Best Encounter Combos.png'
+      './assets/images/case-studies/evil-genius/Adventure Hooks.png',
+      './assets/images/case-studies/evil-genius/Plot.png',
+      './assets/images/case-studies/evil-genius/Villains.png',
+      './assets/images/case-studies/evil-genius/Helpful NPCs.png',
+      './assets/images/case-studies/evil-genius/Stat Blocks.png',
+      './assets/images/case-studies/evil-genius/Best Encounter Combos.png'
     ],
     imageAlts: [
       'Automated Prep Layout Matrix',

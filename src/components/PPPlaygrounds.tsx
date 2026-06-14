@@ -45,10 +45,10 @@ const initiatives: InitiativeItem[] = [
     metric: '88% Script Completion',
     metricLabel: 'Under 3 minutes to output structured candidate narratives',
     images: [
-      '/src/assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 1.png',
-      '/src/assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 11.png',
-      '/src/assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 5.png',
-      '/src/assets/images/case-studies/personality-plus/Script State 1.png'
+      './assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 1.png',
+      './assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 11.png',
+      './assets/images/case-studies/personality-plus/Script Builder (AI Assistant) 5.png',
+      './assets/images/case-studies/personality-plus/Script State 1.png'
 
     ],
     imageAlts: [
@@ -80,9 +80,9 @@ const initiatives: InitiativeItem[] = [
     metric: '3.4x Recording Prep',
     metricLabel: 'Fewer re-takes required to achieve professional quality delivery',
     images: [
-      '/src/assets/images/case-studies/personality-plus/Recording Studio.png',
+      './assets/images/case-studies/personality-plus/Recording Studio.png',
       'src/assets/images/case-studies/personality-plus/Recording Studio-1.png',
-      '/src/assets/images/case-studies/personality-plus/Recording Studio-2.png'
+      './assets/images/case-studies/personality-plus/Recording Studio-2.png'
     ],
     imageAlts: [
       'Companion HUD Overlay Layout preview',
@@ -113,9 +113,9 @@ const initiatives: InitiativeItem[] = [
     metric: '0 Error Incidents',
     metricLabel: 'Zero accidental cancellations or file corruption events',
     images: [
-      '/src/assets/images/case-studies/personality-plus/Dashboard.png',
-      '/src/assets/images/case-studies/personality-plus/Dashboard-1.png',
-      '/src/assets/images/case-studies/personality-plus/View All.png'
+      './assets/images/case-studies/personality-plus/Dashboard.png',
+      './assets/images/case-studies/personality-plus/Dashboard-1.png',
+      './assets/images/case-studies/personality-plus/View All.png'
     ],
     imageAlts: [
       'Character Avatar Configurator UI',
@@ -149,10 +149,10 @@ const initiatives: InitiativeItem[] = [
     metric: '74% Completion Rate',
     metricLabel: 'Recruiters watching the full 60-second clip',
     images: [
-      '/src/assets/images/case-studies/personality-plus/Video Editor.png',
-      '/src/assets/images/case-studies/personality-plus/Video Editor-1.png',
-      '/src/assets/images/case-studies/personality-plus/Video Editor-2.png',
-      '/src/assets/images/case-studies/personality-plus/Video Preview.png'
+      './assets/images/case-studies/personality-plus/Video Editor.png',
+      './assets/images/case-studies/personality-plus/Video Editor-1.png',
+      './assets/images/case-studies/personality-plus/Video Editor-2.png',
+      './assets/images/case-studies/personality-plus/Video Preview.png'
     ],
     imageAlts: [
       'Automated Prep Layout Matrix',

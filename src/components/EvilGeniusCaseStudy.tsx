@@ -12,7 +12,7 @@ interface CustomProps {
 }
 
 export default function EvilGeniusSidekickCaseStudy({ project, onBack, mockupUrl }: CustomProps) {
-  const displayImage = mockupUrl || "/src/assets/images/case-studies/evil-genius/Sidekick.png";
+  const displayImage = mockupUrl || "./assets/images/case-studies/evil-genius/Sidekick.png";
   const carouselRef = React.useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {

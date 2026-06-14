@@ -13,7 +13,7 @@ interface CustomProps {
 }
 
 export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: CustomProps) {
-  const displayImage = mockupUrl || "/src/assets/images/case-studies/personality-plus/regenerated_image_1781030760041.png";
+  const displayImage = mockupUrl || "./assets/images/case-studies/personality-plus/regenerated_image_1781030760041.png";
 
   return (
     <article className="min-h-screen bg-[#FAFAFA] text-[#111111] font-sans relative overflow-hidden selection:bg-[#3B6FD6]/20">
