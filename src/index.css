@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-aspekta: "Geist", system-ui, sans-serif;
+}
+
+/* Base custom styles to align scrollbars and select highlights */
+::selection {
+  background-color: #5B8DFF;
+  color: #0A0A0A;
+}
+
+/* Custom scroll bar definition */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E1E1E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5B8DFF;
+}
+
+/* Lenis active target configurations */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Strategic Print stylesheet rules for Resume PDF generation */
+@media print {
+  /* Hide interactive screens */
+  header,
+  footer,
+  aside,
+  button,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body, html {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Paper alignment for resume sheet */
+  #resume-sheet {
+    background: transparent !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #resume-sheet h1, 
+  #resume-sheet h2, 
+  #resume-sheet h3 {
+    color: #000000 !important;
+  }
+}
+
+/* Sound Wave Traveling Upward Sequence on Hover */
+/* A longitudinal compression wave traveling upward from bar 5 to bar 0. */
+/* Incorporates highly satisfying stretch-and-rebound spring physics for a bouncy feel. */
+@keyframes upward-bounce-wave {
+  0% {
+    transform: translateY(0px) scaleY(1) scaleX(1);
+  }
+  12% {
+    /* Fast upward shoot with vertical stretch and slight horizontal compression */
+    transform: translateY(-13px) scaleY(1.35) scaleX(0.85);
+  }
+  24% {
+    /* Fast fall down and squash at the bottom */
+    transform: translateY(3px) scaleY(0.8) scaleX(1.15);
+  }
+  36% {
+    /* Secondary bounce */
+    transform: translateY(-3px) scaleY(1.08) scaleX(0.95);
+  }
+  48% {
+    /* Final gentle squash */
+    transform: translateY(1px) scaleY(0.95) scaleX(1.02);
+  }
+  60%, 100% {
+    /* Fully stationary in between waves */
+    transform: translateY(0px) scaleY(1) scaleX(1);
+  }
+}
+
+.animate-wave-bar {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.4s ease-in-out;
+}
+
+.group:hover .wave-bar-0 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: -0.85s;
+}
+.group:hover .wave-bar-1 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: -0.94s;
+}
+.group:hover .wave-bar-2 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: -1.03s;
+}
+.group:hover .wave-bar-3 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: -1.12s;
+}
+.group:hover .wave-bar-4 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: -1.21s;
+}
+.group:hover .wave-bar-5 {
+  animation: upward-bounce-wave 1.3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation-delay: 0s;
+}
+
