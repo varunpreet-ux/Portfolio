@@ -99,7 +99,7 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
           {/* CENTER: Clean navigation links */}
           <nav className="hidden md:flex items-center gap-10" id="main-nav-menu">
             {navItems.map((item) => {
-              const isActive = activePage === item.id || (item.id === 'work' && (activePage === 'project' || activePage === 'home'));
+              const isActive = activePage === item.id || (item.id === 'work' && activePage === 'project');
               return (
                 <motion.button
                   key={item.id}
@@ -220,7 +220,7 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
           >
             <div className="flex flex-col gap-6">
               {navItems.map((item, id) => {
-                const isActive = activePage === item.id || (item.id === 'work' && (activePage === 'project' || activePage === 'home'));
+                const isActive = activePage === item.id || (item.id === 'work' && activePage === 'project');
                 return (
                   <motion.button
                     key={item.id}
