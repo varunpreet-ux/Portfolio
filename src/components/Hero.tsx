@@ -44,23 +44,14 @@ export default function Hero({ onNavigateToPage }: HeroProps) {
 
   return (
     <section 
-      className="relative min-h-[100vh] w-full flex flex-col justify-between px-6 sm:px-8 md:px-12 pt-24 pb-0 overflow-hidden bg-[#FFF4EA]" 
+      className="relative min-h-[100vh] w-full flex flex-col justify-between px-6 sm:px-8 md:px-12 pt-24 pb-0 border-b border-[#EAEAEA] overflow-hidden bg-[#FFF4EA]" 
       style={{
-        background: 'linear-gradient(to bottom, #628AD1 0%, #829FD6 35%, #DEDEE4 70%, #FFF4EA 100%)', /* Fallback for older browsers */
-        backgroundImage: 'linear-gradient(to bottom in oklab, #628AD1 0%, #829FD6 35%, #DEDEE4 70%, #FFF4EA 100%)',
+        backgroundImage: 'radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%), linear-gradient(to bottom, #628AD1 0%, #7C9CDC 25%, #9BB3E7 50%, #C4D3F3 75%, #FFF4EA 100%)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
       id="cinematic-hero-section"
     >
-      {/* BACKGROUND LAYER 1: Subtle Ambient Light Overlay */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" id="hero-gradients">
-        {/* Soft white light overlay in bottom corner to make transition even airier and more editorial */}
-        <div 
-          className="absolute bottom-0 right-0 w-[80vw] h-[50vh] opacity-20 pointer-events-none" 
-          style={{
-            background: 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%)',
-          }}
-        />
-      </div>
 
       {/* BACKGROUND LAYER 2: Subtle Grain Overlay */}
       <div 
@@ -125,7 +116,7 @@ export default function Hero({ onNavigateToPage }: HeroProps) {
               <div 
                 className="block overflow-hidden py-3 sm:py-5 text-left whitespace-nowrap pr-4 lg:pr-0 font-sans animate-fade-in" 
                 ref={line1Ref}
-                style={{ fontSize: 'clamp(3.8rem, 9.8vw, 136px)', lineHeight: '1.05', fontFamily: 'Geist' }}
+                style={{ fontSize: 'clamp(3.5rem, 9.44vw, 136px)', lineHeight: '1.05', fontFamily: 'Geist' }}
               >
                 {line1Text.split("").map((char, i) => (
                   <span key={`l1-${i}`} className="hero-char inline-block select-none transform transition-transform duration-75">
@@ -138,7 +129,7 @@ export default function Hero({ onNavigateToPage }: HeroProps) {
               <div 
                 className="block overflow-hidden py-3 sm:py-5 text-right md:text-right whitespace-nowrap pr-4 lg:pr-0 font-sans animate-fade-in" 
                 ref={line2Ref}
-                style={{ fontSize: 'clamp(3.8rem, 9.8vw, 136px)', lineHeight: '1.05', fontFamily: 'Geist' }}
+                style={{ fontSize: 'clamp(3.5rem, 9.44vw, 136px)', lineHeight: '1.05', fontFamily: 'Geist' }}
               >
                 {line2Text.split("").map((char, i) => (
                   <span key={`l2-${i}`} className="hero-char inline-block select-none transform transition-transform duration-75">
