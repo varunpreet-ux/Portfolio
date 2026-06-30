@@ -68,6 +68,9 @@ export default function App() {
     });
     lenisRef.current = lenis;
 
+    // Reset Lenis scroll position to top immediately on boot
+    lenis.scrollTo(0, { immediate: true });
+
     // Notify ScrollTrigger about any Inertial scroll movements
     lenis.on('scroll', ScrollTrigger.update);
 
