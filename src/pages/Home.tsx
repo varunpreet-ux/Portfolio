@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Project } from '../types';
 import { PROJECTS, PERSONAL_INFO } from '../data';
 import NumberShuffle from '../components/NumberShuffle';
@@ -8,7 +8,8 @@ import { ArrowDown, TrendingUp, Sparkles, AlertCircle, ArrowUpRight, Award, Zap,
 import { motion } from 'motion/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import AsciiArtPortrait from '../components/AsciiArtPortrait';
+import AsciiArt from '../components/AsciiArt';
+import { VARUNPREET_ASCII_ART } from '../data/asciiArt';
 
 interface HomeProps {
   onNavigateToPage: (page: 'home' | 'work' | 'about' | 'resume' | 'contact') => void;
@@ -43,6 +44,38 @@ const AnimatedNumber = ({ numberStr }: { numberStr: string }) => {
 
 export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
   const featuredProjects = PROJECTS; // Shows all curated projects
+
+  const block1Ref = useRef<HTMLDivElement>(null);
+  const block2Ref = useRef<HTMLDivElement>(null);
+  const block3Ref = useRef<HTMLDivElement>(null);
+  const block4Ref = useRef<HTMLDivElement>(null);
+
+  const handleAboutProgress = (progress: number) => {
+    // block 1 (UX Beginnings): trigger starts at 0.70, finishes at 0.85
+    if (block1Ref.current) {
+      const t1 = Math.max(0, Math.min(1, (progress - 0.70) / 0.15));
+      block1Ref.current.style.opacity = t1.toString();
+      block1Ref.current.style.transform = `translateY(${(1 - t1) * 30}px)`;
+    }
+    // block 2 (Natural Curiosity): trigger starts at 0.77, finishes at 0.92
+    if (block2Ref.current) {
+      const t2 = Math.max(0, Math.min(1, (progress - 0.77) / 0.15));
+      block2Ref.current.style.opacity = t2.toString();
+      block2Ref.current.style.transform = `translateY(${(1 - t2) * 30}px)`;
+    }
+    // block 3 (Unified Focus): trigger starts at 0.84, finishes at 0.99
+    if (block3Ref.current) {
+      const t3 = Math.max(0, Math.min(1, (progress - 0.84) / 0.15));
+      block3Ref.current.style.opacity = t3.toString();
+      block3Ref.current.style.transform = `translateY(${(1 - t3) * 30}px)`;
+    }
+    // block 4 (Current Interests): trigger starts at 0.90, finishes at 1.00
+    if (block4Ref.current) {
+      const t4 = Math.max(0, Math.min(1, (progress - 0.90) / 0.10));
+      block4Ref.current.style.opacity = t4.toString();
+      block4Ref.current.style.transform = `translateY(${(1 - t4) * 30}px)`;
+    }
+  };
 
   // GSAP+ScrollTrigger hand-crafted mechanical vertical slot ticker transition of project numbers
   useEffect(() => {
@@ -383,67 +416,89 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
 
         </div>
       </section>
-      <section id="about-section" className="py-28 bg-[#000000] text-[#FAFAFA] border-t border-zinc-900">
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 lg:px-0 w-full flex flex-col">
+
+      {/* 6. ABOUT SECTION */}
+      
+      {/* 6A. DESKTOP VERSION (Scroll-pinned layout) */}
+      <section id="about-section" className="hidden lg:block relative w-full h-[300vh] bg-[#000000] text-[#FAFAFA] border-t border-zinc-900">
+        <div className="sticky top-0 h-screen w-full flex flex-col justify-start pt-8 lg:pt-10 pb-20 lg:pb-24 overflow-hidden">
           
-          {/* Section Header Statement */}
-          <div className="mb-14 max-w-2xl">
-            <h2 
-              className="font-sans text-zinc-100 tracking-tight hover:text-[#5D8EE8] transition-colors duration-300"
-              style={{ fontSize: 'clamp(36px, 5.5vw, 64px)', lineHeight: '1.1', fontWeight: 250 }}
-            >
-              Hi, I'm Varunpreet
-            </h2>
-            <div className="h-[2px] w-12 bg-[#5D8EE8] mt-6" />
+          {/* Absolute Background Canvas for Full Viewport Particle Animation */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <AsciiArt 
+              asciiText={VARUNPREET_ASCII_ART} 
+              onProgress={handleAboutProgress}
+              heightMode="viewport"
+            />
           </div>
 
-          {/* Main 2-Column Responsive Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-12 lg:gap-x-24 items-start w-full">
+          <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-0 w-full flex flex-col justify-start h-full relative z-10">
             
-            {/* Left Column */}
-            <div className="space-y-12 md:space-y-16">
-              {/* Block 1 (UX Beginnings) */}
-              <div className="flex flex-col">
+            {/* Section Header Statement - Capsule Pill style matching screenshot */}
+            <div className="mb-12 w-full flex justify-between items-center">
+              <div className="border border-zinc-800 bg-zinc-900/30 px-4 py-1.5 rounded-[4px] font-sans text-[11px] font-normal uppercase tracking-widest text-zinc-400 select-none">
+                Hi, I'm Varunpreet
+              </div>
+            </div>
+            {/* Main 3-Column 2-Row Layout to guarantee perfect top-alignment of both rows */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-y-28 gap-x-8 lg:gap-x-12 items-start w-full relative">
+              
+              {/* Block 1 (UX Beginnings) - Left Column Row 1 */}
+              <div 
+                ref={block1Ref} 
+                className="lg:col-span-3 lg:col-start-1 lg:row-start-1 flex flex-col opacity-0 translate-y-[30px] will-change-[transform,opacity]"
+              >
                 <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight hover:text-[#5D8EE8] transition-colors duration-300">
                   UX Beginnings
                 </h3>
-                <div className="h-[1px] w-full bg-[#5D8EE8]/25 my-4" />
+                <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
                 <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
                   I started my career as a UX Intern and quickly learned that successful products are rarely design problems alone.
                 </p>
               </div>
 
-              {/* Block 2 (Natural Curiosity) */}
-              <div className="flex flex-col">
+              {/* Block 2 (Natural Curiosity) - Left Column Row 2 (Top-aligned with Block 4) */}
+              <div 
+                ref={block2Ref} 
+                className="lg:col-span-3 lg:col-start-1 lg:row-start-2 flex flex-col opacity-0 translate-y-[30px] will-change-[transform,opacity]"
+              >
                 <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight hover:text-[#5D8EE8] transition-colors duration-300">
                   Natural Curiosity
                 </h3>
-                <div className="h-[1px] w-full bg-[#5D8EE8]/25 my-4" />
+                <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
                 <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
                   Growing up, I was fascinated by shows like <span className="italic">How It's Made</span> and <span className="italic">How Do They Do It?</span>. Understanding how things worked behind the scenes—from engineering and technology to business strategy—eventually led me to product design.
                 </p>
               </div>
-            </div>
 
-            {/* Right Column */}
-            <div className="space-y-12 md:space-y-16">
-              {/* Block 3 (Unified Focus) */}
-              <div className="flex flex-col">
+              {/* Center Column Spacer - Spans both rows for ASCII Art background alignment */}
+              <div className="lg:col-span-6 lg:col-start-4 lg:row-start-1 lg:row-span-2 flex items-center justify-center min-h-[350px] lg:min-h-[450px]">
+                {/* Empty container preserving visual slot spacing for centered portrait */}
+              </div>
+
+              {/* Block 3 (Unified Focus) - Right Column Row 1 */}
+              <div 
+                ref={block3Ref} 
+                className="lg:col-span-3 lg:col-start-10 lg:row-start-1 flex flex-col opacity-0 translate-y-[30px] will-change-[transform,opacity]"
+              >
                 <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight hover:text-[#5D8EE8] transition-colors duration-300">
                   Unified Focus
                 </h3>
-                <div className="h-[1px] w-full bg-[#5D8EE8]/25 my-4" />
+                <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
                 <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
                   Today, I focus on creating products where user needs, business goals, and technical realities move in the same direction.
                 </p>
               </div>
 
-              {/* Block 4 (Current Interests) */}
-              <div className="flex flex-col">
+              {/* Block 4 (Current Interests) - Right Column Row 2 (Top-aligned with Block 2) */}
+              <div 
+                ref={block4Ref} 
+                className="lg:col-span-3 lg:col-start-10 lg:row-start-2 flex flex-col opacity-0 translate-y-[30px] will-change-[transform,opacity]"
+              >
                 <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight hover:text-[#5D8EE8] transition-colors duration-300">
                   Current Interests
                 </h3>
-                <div className="h-[1px] w-full bg-[#5D8EE8]/25 my-4" />
+                <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
                 <div className="flex flex-wrap gap-2.5 sm:gap-3 font-sans">
                   {["Automobiles", "PC Hardware", "Technology", "Product Strategy"].map((interest) => (
                     <span 
@@ -455,12 +510,89 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
                   ))}
                 </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </section>
- 
+
+      {/* 6B. MOBILE & TABLET VERSION (Fully vertical scrollable stack layout) */}
+      <section id="about-section-mobile" className="block lg:hidden py-16 bg-[#000000] text-[#FAFAFA] border-t border-zinc-900">
+        <div className="max-w-[640px] mx-auto px-6 sm:px-8 w-full flex flex-col items-center">
+          
+          {/* Header Pill */}
+          <div className="mb-2 self-start">
+            <div className="border border-zinc-800 bg-zinc-900/30 px-4 py-1.5 rounded-[4px] font-sans text-[11px] font-normal uppercase tracking-widest text-zinc-400 select-none">
+              Hi, I'm Varunpreet
+            </div>
+          </div>
+
+          {/* ASCII Art Component - Dynamically scaled inline component fitting screen width */}
+          <div className="w-full mb-6 flex justify-center">
+            <AsciiArt 
+              asciiText={VARUNPREET_ASCII_ART} 
+              heightMode="fit"
+              scrollDriven={false}
+            />
+          </div>
+
+          {/* Stacked Content Blocks in a single clean column */}
+          <div className="w-full flex flex-col space-y-12">
+            {/* Block 1 (UX Beginnings) */}
+            <div className="flex flex-col">
+              <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight">
+                UX Beginnings
+              </h3>
+              <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
+              <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
+                I started my career as a UX Intern and quickly learned that successful products are rarely design problems alone.
+              </p>
+            </div>
+
+            {/* Block 2 (Natural Curiosity) */}
+            <div className="flex flex-col">
+              <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight">
+                Natural Curiosity
+              </h3>
+              <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
+              <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
+                Growing up, I was fascinated by shows like <span className="italic">How It's Made</span> and <span className="italic">How Do They Do It?</span>. Understanding how things worked behind the scenes—from engineering and technology to business strategy—eventually led me to product design.
+              </p>
+            </div>
+
+            {/* Block 3 (Unified Focus) */}
+            <div className="flex flex-col">
+              <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight">
+                Unified Focus
+              </h3>
+              <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
+              <p className="text-zinc-300 leading-relaxed font-light text-sm sm:text-base">
+                Today, I focus on creating products where user needs, business goals, and technical realities move in the same direction.
+              </p>
+            </div>
+
+            {/* Block 4 (Current Interests) */}
+            <div className="flex flex-col">
+              <h3 className="font-sans text-lg sm:text-xl font-normal text-zinc-100 tracking-tight">
+                Current Interests
+              </h3>
+              <div className="h-[1px] w-full bg-[#5D8EE8]/60 mt-1.5 mb-3.5" />
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 font-sans">
+                {["Automobiles", "PC Hardware", "Technology", "Product Strategy"].map((interest) => (
+                  <span 
+                    key={interest} 
+                    className="px-3.5 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/40 text-zinc-300 text-xs sm:text-sm"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* 7. CONTACT CTA */}
       <section className="py-24 text-center relative overflow-hidden bg-[#1b1b1b] text-white">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 w-full relative z-10">
