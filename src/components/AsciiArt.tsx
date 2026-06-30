@@ -49,23 +49,27 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
     const lines = asciiText.split('\n');
     
     // Programmatically trim empty/whitespace-only lines from the top and bottom of the art
-    let firstNonEmptyRow = 0;
-    let lastNonEmptyRow = lines.length - 1;
-    for (let i = 0; i < lines.length; i++) {
-      if (lines[i].trim() !== '') {
-        firstNonEmptyRow = i;
-        break;
+    // ONLY when heightMode is 'fit' (mobile/tablet layouts) to prevent shifting on desktop
+    let processedLines = lines;
+    if (heightMode === 'fit') {
+      let firstNonEmptyRow = 0;
+      let lastNonEmptyRow = lines.length - 1;
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].trim() !== '') {
+          firstNonEmptyRow = i;
+          break;
+        }
       }
-    }
-    for (let i = lines.length - 1; i >= 0; i--) {
-      if (lines[i].trim() !== '') {
-        lastNonEmptyRow = i;
-        break;
+      for (let i = lines.length - 1; i >= 0; i--) {
+        if (lines[i].trim() !== '') {
+          lastNonEmptyRow = i;
+          break;
+        }
       }
+      processedLines = lines.slice(firstNonEmptyRow, lastNonEmptyRow + 1);
     }
-    const trimmedLines = lines.slice(firstNonEmptyRow, lastNonEmptyRow + 1);
     
-    const matrix = trimmedLines.map(line => line.split(''));
+    const matrix = processedLines.map(line => line.split(''));
     const rows = matrix.length;
     const cols = matrix[0]?.length || 0;
 
