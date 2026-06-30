@@ -51,6 +51,14 @@ export default function App() {
     ScrollTrigger.refresh();
   }, [footerHeight, activePage]);
 
+  // Force scroll to top on reload and prevent browser auto-restoration
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // 1. Initialize Lenis Inertial Smooth Scroll
   useEffect(() => {
     const lenis = new Lenis({
