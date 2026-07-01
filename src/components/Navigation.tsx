@@ -44,6 +44,18 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock background body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navItems: { id: PageType; label: string }[] = [
     { id: 'work', label: 'Work' },
     { id: 'about', label: 'About' },
@@ -197,7 +209,11 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`focus:outline-none p-1 shrink-0 ${isSticky ? 'text-[#111111]' : 'text-white'} hover:text-[#5B8DFF]`}
+              className={`focus:outline-none p-1 shrink-0 relative z-50 ${
+                mobileMenuOpen 
+                  ? 'text-[#111111]' 
+                  : (isSticky ? 'text-[#111111]' : 'text-white')
+              } hover:text-[#5B8DFF] transition-colors`}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -214,9 +230,7 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`fixed inset-0 z-40 flex flex-col justify-center px-8 md:hidden ${
-              isSticky ? 'bg-[#FAFAFA]' : 'bg-[#0A0A0A]'
-            }`}
+            className="fixed inset-0 z-40 flex flex-col justify-center px-8 md:hidden bg-[#FAFAFA]"
           >
             <div className="flex flex-col gap-6">
               {navItems.map((item, id) => {
@@ -229,20 +243,18 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
                     exit={{ x: -20, opacity: 0 }}
                     transition={{ delay: id * 0.05, ease: 'easeOut' }}
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex justify-between items-center text-left focus:outline-none py-3 border-b ${
-                      isSticky ? 'border-black/5' : 'border-white/5'
-                    }`}
+                    className="flex justify-between items-center text-left focus:outline-none py-3 border-b border-black/5"
                   >
                     <span
                       className={`text-xl font-sans font-[300] tracking-tight transition-colors ${
                         isActive 
-                          ? (isSticky ? 'text-[#111111] font-medium' : 'text-white') 
-                          : (isSticky ? 'text-[#111111]/60 hover:text-[#111111]' : 'text-white/60 hover:text-white')
+                          ? 'text-[#111111] font-medium' 
+                          : 'text-[#111111]/60 hover:text-[#111111]'
                       }`}
                     >
                       {item.label}
                     </span>
-                    <span className={`text-xs ${isSticky ? 'text-[#111111]/40' : 'text-white/30'}`}>0{id + 1}</span>
+                    <span className="text-xs text-[#111111]/40">0{id + 1}</span>
                   </motion.button>
                 );
               })}
@@ -253,9 +265,7 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
                 exit={{ x: -20, opacity: 0 }}
                 transition={{ delay: navItems.length * 0.05, ease: 'easeOut' }}
                 onClick={() => handleNavClick('contact')}
-                className={`w-full py-4 mt-4 font-sans font-[400] text-sm text-center rounded-[6px] tracking-wide ${
-                  isSticky ? 'bg-[#111111] text-white shadow-sm' : 'bg-white text-black'
-                }`}
+                className="w-full py-4 mt-4 font-sans font-[400] text-sm text-center rounded-[6px] tracking-wide bg-[#111111] text-white shadow-sm"
               >
                 Get in Touch
               </motion.button>

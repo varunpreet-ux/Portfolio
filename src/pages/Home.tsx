@@ -418,9 +418,10 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
       </section>
 
       {/* 6. ABOUT SECTION */}
+      <div id="about-section">
       
       {/* 6A. DESKTOP VERSION (Scroll-pinned layout) */}
-      <section id="about-section" className="hidden lg:block relative w-full h-[300vh] bg-[#000000] text-[#FAFAFA] border-t border-zinc-900">
+      <section id="about-section-desktop" className="hidden lg:block relative w-full h-[300vh] bg-[#000000] text-[#FAFAFA] border-t border-zinc-900">
         <div className="sticky top-0 h-screen w-full flex flex-col justify-start pt-8 lg:pt-10 pb-20 lg:pb-24 overflow-hidden">
           
           {/* Absolute Background Canvas for Full Viewport Particle Animation */}
@@ -592,6 +593,7 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
 
         </div>
       </section>
+      </div>
 
       {/* 7. CONTACT CTA */}
       <section className="py-24 text-center relative overflow-hidden bg-[#1b1b1b] text-white">
