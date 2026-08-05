@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   email: "preetvarun.too@gmail.com",
   linkedin: "https://www.linkedin.com/in/varunpreet-singh",
   // Copy and paste your Google Drive Shareable Link here to connect your PDF
-  resumeUrl: "https://drive.google.com/file/d/1oYbPxEks61mPj_E_gJBWFiKjO7Rh2X_L/preview",
+  resumeUrl: "https://drive.google.com/file/d/1Zv7UdLFDP2NhUkZdaxdbBlrGwBELo5Yu/preview",
   location: "San Francisco, CA (Open to Remote)",
   bio: "A highly strategic 24-year-old Product Designer. I began my career as a UX Design Intern and was rapidly promoted to UX Designer due to my ability to align complex user behaviors with direct business growth metrics. I specialize in product thinking, business strategy, user research, interaction design, visual hierarchy, and leveraging advanced AI-assisted design systems to accelerate delivery times.",
   aboutDetailed: {
