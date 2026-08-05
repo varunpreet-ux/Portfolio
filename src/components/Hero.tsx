@@ -12,7 +12,7 @@ export default function Hero({ onNavigateToPage }: HeroProps) {
   const line1Ref = useRef<HTMLDivElement>(null);
   const line2Ref = useRef<HTMLDivElement>(null);
 
-  const line1Text = "Business-centered";
+  const line1Text = "User-centered";
   const line2Text = "Product designer";
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export default function Hero({ onNavigateToPage }: HeroProps) {
           >
             {/* MOBILE ONLY INTERACTIVE TITLES (Stacked Vertically, Alternating Extreme Left/Right Alignment & Highly Impactful) */}
             <div className="flex md:hidden flex-col w-full gap-1 py-4 select-none">
-              {["Business", "centered", "Product", "Designer"].map((word, wordIdx) => {
+              {["User", "centered", "Product", "Designer"].map((word, wordIdx) => {
                 const isLeft = wordIdx % 2 === 0;
                 return (
                   <div 

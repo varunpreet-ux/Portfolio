@@ -2,8 +2,8 @@ import { Project, Milestone, SkillGroup } from './types';
 
 export const PERSONAL_INFO = {
   name: "Varunpreet Singh",
-  role: "Business-Centered Product Designer",
-  headline: "BUSINESS-CENTERED PRODUCT DESIGNER",
+  role: "User-Centered Product Designer",
+  headline: "USER-CENTERED PRODUCT DESIGNER",
   tagline: "Designing Products at the Intersection of Users, Business and AI.",
   age: 24,
   experienceMonths: 15,

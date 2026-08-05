@@ -49,7 +49,7 @@ export default function Footer({ activePage, onPageChange }: FooterProps) {
             <div className="flex flex-col space-y-4" id="footer-col-nav">
               <ul className="space-y-3.5">
                 {menuItemsCol1.map((item) => {
-                  const isActive = activePage === item.target || (item.target === 'work' && (activePage === 'home' || activePage === 'project'));
+                  const isActive = activePage === item.target || (item.target === 'work' && activePage === 'project');
                   return (
                     <li key={item.label}>
                       <button

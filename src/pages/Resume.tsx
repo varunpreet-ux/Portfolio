@@ -41,7 +41,7 @@ export default function Resume() {
                 Varunpreet Singh
               </h1>
               <p className="font-sans text-xs text-[#3B6FD6] print:text-black/80 font-semibold">
-                Business-Centered Product Designer
+                User-Centered Product Designer
               </p>
               <p className="text-xs font-sans text-zinc-600 print:text-black/60 font-light mt-4 max-w-lg leading-relaxed">
                 Applying rigorous behavioral research, spatial wireframing, component tokens architecture, and value proposition analytics to produce high-retention SaaS solutions.
