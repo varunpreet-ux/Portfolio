@@ -117,32 +117,32 @@ export const PROJECTS: Project[] = [
     role: "Lead UX Designer",
     duration: "2 Months",
     metrics: [
-      { value: "42%", label: "Reduction in Time-to-Chart" },
-      { value: "0", label: "Medical Documentation Error Incidents" },
-      { value: "94%", label: "Nurse Direct Adoption Rate" }
+      { value: "End-to-End UX Leadership", label: "Led UX design across the end-to-end product experience" },
+      { value: "User Flows & Architecture", label: "Defined user flows and interaction models" },
+      { value: "AI-Assisted Workflows", label: "Designed AI-assisted scripting workflows" }
     ],
     imageAlt: "HealthSync Mobile Interface Mockup",
     mockupUrl: "./assets/images/case-studies/personality-plus/Landing Page Before login wide.png",
     overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes.",
     businessProblem: "The hiring process remains heavily dependent on static documents.\n\nWhile resumes effectively communicate qualifications, they often fail to capture qualities that recruiters evaluate during interviews, including:",
-    userProblem: "Nurses are constantly on their feet, doing tasks with gloved hands using shared tablets. Existing legacy interfaces required them to go through 7 distinct tabs, select microscopic dropdowns, and manually type vital readings under stressful conditions.",
+    userProblem: "Many users knew they wanted to introduce themselves professionally. Few knew how to structure their story or felt comfortable speaking directly to a camera.",
     research: {
-      approach: "I shadowed 6 emergency ward coordinators for a combined total of 42 hours across day and night shifts, documenting their physical posture, tablet interactions, and cognitive interruptions.",
+      approach: "This creates a gap between application and interview stages. The opportunity was to help candidates communicate these qualities earlier in the hiring process without requiring recruiters to adopt entirely new workflows.",
       insights: [
-        "Nurses document clinical details 'on the fly' in corridors, not sitting down at desks.",
-        "Tiny input fields and native keyboard popups are major friction sources when wearing gloves.",
-        "Important alerts get lost inside deep notifications. Color priorities must be striking.",
-        "Clinical staff heavily prioritize a summary overview of patient change-of-states over long diagnostic histories."
+        "Communication ability",
+        "Professional presence",
+        "Confidence",
+        "Personality"
       ]
     },
-    designProcess: "Designed a single-screen layout with massive sticky buttons (minimum 48px touch targets) and tactile visual indicators. We integrated swipe gestures to log routine tasks instantly.",
-    wireframesDescription: "Developed tactile wireframes focusing heavily on thumb-reach zones. Put critical interaction elements in the lower 40% of the viewport and kept high-contrast labels at the top for perfect scanning.",
-    solution: "An elegant, dark terminal-inspired interface featuring patient cards sorted dynamically based on immediate acuity. High priority status indicator borders flare in clear medical colors. Users scroll fluidly, expanding active sheets with physical, friction-free gestures.",
+    designProcess: "Rather than asking users to immediately record themselves, the experience was designed to progressively build confidence through guidance, preparation, and iteration.\n\nEvery feature supports this principle.",
+    wireframesDescription: "Build structured professional stories via interactive scripting helper systems, record securely using user-paced teleprompters, and publish with complete creative control.",
+    solution: "Evaluate complex communication, personality parameters, and user culture alignments inside 60 seconds of secure candidate-video playback.",
     outcomes: [
-      "Cut down clinical documentation times by 42%, returning roughly 45 minutes of nursing attention per shift back to direct patients.",
-      "Achieved a perfect zero-error status during the 3-week emergency department test pilot.",
-      "Generated an overwhelming 94% approval rating, triggering immediate enterprise contracts and my formal full-time hire."
+      "Teleprompter & Recording: Designed teleprompter-based recording experiences",
+      "Sharing & Dashboards: Designed sharing and dashboard experiences",
+      "Strategic Stakeholder Alignment: Collaborated with stakeholders and engineering teams throughout development"
     ],
-    reflections: "Shadowing users in their actual working environment completely reframed my approach. Good product design is built for real environments—stress, motion, glare, and tired fingers—not clean office screens."
+    reflections: "The most valuable insight from this project was that confidence is often a design problem rather than a user problem.\n\nMany users already possess the skills and experiences necessary to tell compelling professional stories. What they lack is structure, guidance, and a comfortable environment in which to present themselves.\n\nBy reducing uncertainty throughout the process, the product helps users focus less on the mechanics of recording and more on communicating who they are."
   }
 ];

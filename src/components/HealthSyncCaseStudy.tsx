@@ -53,7 +53,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           </div>
           
           {/* Custom Hero Image */}
-          <div className={project.id === 'healthsync-mobile' ? "w-full max-w-[1360px] mx-auto relative mt-16 lg:mt-48 aspect-[1360/968] rounded-2xl bg-neutral-100 overflow-hidden shadow-xs border border-neutral-300/40" : "w-full relative mt-16 lg:mt-48 aspect-[16/8] rounded-2xl bg-neutral-200 overflow-hidden shadow-xs border border-neutral-300/40"}>
+          <div className="w-full max-w-[1360px] mx-auto relative mt-16 lg:mt-48 aspect-[1360/968] rounded-2xl bg-neutral-100 overflow-hidden shadow-xs border border-neutral-300/40">
             <img
               src={displayImage}
               alt={project.imageAlt}
@@ -69,7 +69,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
             <div className="lg:col-span-4">
               <h2 className="text-2xl sm:text-[36px] font-sans font-light text-neutral-900 leading-tight">
-                {project.id === 'healthsync-mobile' ? 'Presenting Candidates Beyond the Conventional Resume' : 'Optimized Layouts to Relieve Clinical Burnout'}
+                Presenting Candidates Beyond the Conventional Resume
               </h2>
             </div>
             <div className="lg:col-span-8 space-y-6">
@@ -90,13 +90,11 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
             
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-[250] tracking-tight text-white leading-tight">
-                {project.id === 'healthsync-mobile' ? 'Designed to Connect Authentically' : 'Designed to Relieve Cognitive Strain'}
+                Designed to Connect Authentically
               </h2>
               <div className="h-[2px] bg-[#3B6FD6] w-24 animate-pulse"></div>
               <p className="text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
-                {project.id === 'healthsync-mobile'
-                  ? 'We designed an interactive video-recording platform configured to support job seekers in presenting themselves authentically. Candidate success is measured by candidate confidence during creation and improved interview invitation rates through professional video introductions.'
-                  : 'We designed clinical tracking dashboards configured for real environments. Ward workflow efficiency is measured not in abstract design tokens, but in direct patient engagement hours preserved and critical charting error reductions.'}
+                We designed an interactive video-recording platform configured to support job seekers in presenting themselves authentically. Candidate success is measured by candidate confidence during creation and improved interview invitation rates through professional video introductions.
               </p>
             </div>
 
@@ -119,9 +117,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                 <div>
                   <h3 className="text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-1.5 font-sans">Team</h3>
                   <p className="text-base sm:text-lg text-white font-light font-sans">
-                    {project.id === 'healthsync-mobile'
-                      ? 'PM, 1 UX Designer (me), 3 Developers'
-                      : 'Director of Clinical UX, 1 Lead Developer, Hospital Pilot Board'}
+                    PM, 1 UX Designer (me), 3 Developers
                   </p>
                 </div>
 
@@ -131,9 +127,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                   <h3 className="text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-3 font-sans">My Contribution</h3>
                   <div className="space-y-4">
                     <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed font-sans">
-                      {project.id === 'healthsync-mobile'
-                        ? 'Designed guided video recording interfaces with teleprompter systems and established accessible audio/video threshold gauges.'
-                        : 'Conducted exhaustive shift UX audits, shadowed emergency medical coordinators, designed tactile wireframes under fluorescent light constraints, and generated zero-fault assets.'}
+                      Designed guided video recording interfaces with teleprompter systems and established accessible audio/video threshold gauges.
                     </p>
                   </div>
                 </div>
@@ -164,21 +158,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           </div>
 
           <div className="border-t border-neutral-300 divide-y divide-neutral-300/85 mt-12">
-            {(project.id === 'healthsync-mobile'
-              ? [
-                  "Communication ability",
-                  "Professional presence",
-                  "Confidence",
-                  "Personality"
-                ]
-              : [
-                  "Reduce documentation liability and malpractice error rates",
-                  "Accelerate ward handoff transition velocity",
-                  "Erase 7 nested browser tabs with continuous single-screen streams",
-                  "Increase direct bedside care time",
-                  "Demonstrate medical UX compliance with local health metrics"
-                ]
-              ).map((goal, idx) => (
+            {project.research.insights.map((goal, idx) => (
               <div key={idx} className="group py-5 px-4 rounded transition-all">
                 <h4 className="text-neutral-900 text-base md:text-lg font-normal font-sans flex items-baseline">
                   <span className="text-neutral-400 mr-3 text-sm font-light">0{idx + 1}.</span>
@@ -188,11 +168,9 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
             ))}
           </div>
 
-          {project.id === 'healthsync-mobile' && (
-            <div className="mt-12 pt-8 border-t border-neutral-300 w-full text-neutral-800 text-base md:text-[18px] font-[300] leading-relaxed font-sans">
-              <p className="text-center">This creates a gap between application and interview stages. The opportunity was to help candidates communicate these qualities earlier in the hiring process without requiring recruiters to adopt entirely new workflows.</p>
+          <div className="mt-12 pt-8 border-t border-neutral-300 w-full text-neutral-800 text-base md:text-[18px] font-[300] leading-relaxed font-sans">
+              <p className="text-center">{project.research.approach}</p>
             </div>
-          )}
 
         </div>
       </section>
@@ -203,12 +181,11 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-sans font-[250] tracking-tight text-neutral-900 leading-tight">
-              {project.id === 'healthsync-mobile' ? 'Understanding the Problem' : 'Understanding the Emergency Ward Opportunity'}
+              Understanding the Problem
             </h2>
           </div>
 
-          {project.id === 'healthsync-mobile' ? (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
               <div className="lg:col-span-12 space-y-8 text-neutral-800 text-base md:text-[18px] font-[300] leading-relaxed font-sans">
                 <p className="text-xl sm:text-2xl font-light text-neutral-950 tracking-tight leading-normal">
                   Through product exploration, one insight quickly emerged:
@@ -218,7 +195,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 pt-8 border-t border-neutral-200/60">
                   <p>
-                    Many users knew they wanted to introduce themselves professionally. Few knew how to structure their story or felt comfortable speaking directly to a camera.
+                    {project.userProblem}
                   </p>
                   <div className="space-y-4">
                     <span className="text-[10px] uppercase font-sans font-semibold tracking-wider text-[#3B6FD6] block">The design challenge became:</span>
@@ -229,63 +206,6 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                 </div>
               </div>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-              {/* Left Column */}
-              <div className="space-y-8">
-                <p className="text-xl sm:text-2xl font-light text-neutral-800 tracking-tight leading-normal">
-                  {project.userProblem}
-                </p>
-                
-                <div className="space-y-6 pt-6 border-t border-neutral-200/60">
-                  <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-sans font-semibold tracking-wider text-neutral-400 block">The Premise</span>
-                    <p className="text-neutral-600 text-base sm:text-[17px] font-light leading-relaxed">
-                      Hospital software is historically built for quiet, static office desks.
-                    </p>
-                  </div>
-                  <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-sans font-semibold tracking-wider text-[#3B6FD6] block">The Reality</span>
-                    <p className="text-neutral-900 text-base sm:text-[17px] font-medium leading-relaxed">
-                      Clinical tools are navigated on the move, with gloved hands, under extreme fatigue.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column */}
-              <div className="space-y-8 lg:pl-6 flex flex-col justify-between">
-                <div className="space-y-6">
-                  <p className="text-neutral-700 text-base sm:text-[17px] leading-relaxed font-light">
-                    Nurses do not have the visual tolerance to map minor pixels or search secondary menus when monitoring clinical statuses.
-                  </p>
-
-                  <div className="p-6 bg-neutral-50/80 rounded-xl border border-neutral-200/50 space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-sans font-semibold tracking-wider text-neutral-400 block">Before</span>
-                        <span className="text-neutral-400 line-through font-light text-sm sm:text-base block">
-                          7 nested desktop tabs on a tablet
-                        </span>
-                      </div>
-                      <div className="space-y-1">
-                        <span className="text-[10px] uppercase font-sans font-semibold tracking-wider text-[#3B6FD6] block">After</span>
-                        <span className="text-neutral-900 font-medium text-sm sm:text-base block">
-                          Acuity-sorted tactile grid
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-neutral-200">
-                  <p className="text-[#3B6FD6] text-base leading-relaxed font-medium">
-                    This core tension informed every layout rule and gesture blueprint.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
 
         </div>
       </section>
@@ -297,26 +217,17 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
             <div className="flex items-center justify-center gap-2">
               <span className="inline-block w-2.5 h-2.5 bg-[#3B6FD6] rounded-full"></span>
               <h3 className="text-xs uppercase tracking-widest text-[#3B6FD6] font-semibold font-sans">
-                {project.id === 'healthsync-mobile' ? 'DESIGN PRINCIPLE' : 'DESIGNING FOR HIGH STRESS'}
+                DESIGN PRINCIPLE
               </h3>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-[48px] font-sans font-light tracking-tight text-white leading-tight">
-              {project.id === 'healthsync-mobile' ? 'Guide First. Record Second.' : 'Designed for Cognitive Fatigue'}
+              Guide First. Record Second.
             </h2>
-            {project.id === 'healthsync-mobile' ? (
-              <div className="text-neutral-400 text-sm sm:text-base leading-relaxed font-light max-w-2xl mx-auto font-sans space-y-4">
-                <p>
-                  Rather than asking users to immediately record themselves, the experience was designed to progressively build confidence through guidance, preparation, and iteration.
-                </p>
-                <p>
-                  Every feature supports this principle.
-                </p>
+            <div className="text-neutral-400 text-sm sm:text-base leading-relaxed font-light max-w-2xl mx-auto font-sans space-y-4">
+                {project.designProcess.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
-            ) : (
-              <p className="text-neutral-400 text-sm sm:text-base leading-relaxed font-light max-w-2xl mx-auto font-sans">
-                Tactile, large gesture-based interactions eliminate typing errors and accidental screen double-taps. When medical staff operate on empty tanks, software must carry the cognitive safety net.
-              </p>
-            )}
           </div>
         </div>
       </section>
@@ -326,23 +237,19 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
         <div className="max-w-[1360px] mx-auto w-full px-6 sm:px-8 md:px-12">
           <div className="max-w-2xl mb-12">
             <h2 className="text-3xl md:text-5xl font-sans font-[250] tracking-tight text-neutral-900 leading-tight">
-              {project.id === 'healthsync-mobile' 
-                ? 'A Symmetrical Multi-Sided Candidate-Recruiter Synergy'
-                : 'A Symmetrical Multi-Sided Ward Synergy'
-              }
+              A Symmetrical Multi-Sided Candidate-Recruiter Synergy
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-neutral-300">
-            {project.id === 'healthsync-mobile' ? (
-              <>
+            <>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="inline-block w-2.5 h-2.5 bg-[#3B6FD6] rounded-full"></span>
                     <h3 className="font-medium text-lg text-neutral-900">Active Candidates</h3>
                   </div>
                   <p className="text-sm font-light leading-relaxed text-neutral-600 font-sans">
-                    Build structured professional stories via interactive scripting helper systems, record securely using user-paced teleprompters, and publish with complete creative control.
+                    {project.wireframesDescription}
                   </p>
                 </div>
 
@@ -352,7 +259,7 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                     <h3 className="font-medium text-lg text-neutral-900">Recruiters & Hiring Managers</h3>
                   </div>
                   <p className="text-sm font-light leading-relaxed text-neutral-600 font-sans">
-                    Evaluate complex communication, personality parameters, and user culture alignments inside 60 seconds of secure candidate-video playback.
+                    {project.solution}
                   </p>
                 </div>
 
@@ -366,39 +273,6 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
                   </p>
                 </div>
               </>
-            ) : (
-              <>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-block w-2.5 h-2.5 bg-[#3B6FD6] rounded-full"></span>
-                    <h3 className="font-medium text-lg text-neutral-900">Ward Coordinators</h3>
-                  </div>
-                  <p className="text-sm font-light leading-relaxed text-neutral-600 font-sans">
-                    Review macro ward capacity and patient assignment in real-time, matching clinical acuity directly without switching dashboard perspectives.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-block w-2.5 h-2.5 bg-[#3B6FD6] rounded-full"></span>
-                    <h3 className="font-medium text-lg text-neutral-900">Active Duty Nurses</h3>
-                  </div>
-                  <p className="text-sm font-light leading-relaxed text-neutral-600 font-sans">
-                    Input vitals on-the-fly inside corridors using 48px tactile input triggers. Swipe-to-commit eliminates safety and mislogging discrepancies.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-block w-2.5 h-2.5 bg-[#3B6FD6] rounded-full"></span>
-                    <h3 className="font-medium text-lg text-neutral-900">Attending Physicians</h3>
-                  </div>
-                  <p className="text-sm font-light leading-relaxed text-[#555555] font-sans">
-                    Access a programmatically compiled chronological overview of the patient shifts, diagnosing trends immediately on single-screen feeds.
-                  </p>
-                </div>
-              </>
-            )}
           </div>
         </div>
       </section>
@@ -424,89 +298,13 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           </div>
 
           {/* PLAYGROUND CAROUSEL EMBED */}
-          {project.id === 'healthsync-mobile' ? <PPPlaygrounds /> : <EGPPlaygrounds />}
+          <PPPlaygrounds />
 
         </div>
       </section>
 
       {/* SECTION: DESIGNING FOR TRUST / CLINICAL ACCURACY */}
-      {project.id !== 'healthsync-mobile' && (
-        <section className="bg-[#000000] text-white py-24 md:py-32 border-t border-neutral-900 border-b border-neutral-950 font-sans relative overflow-hidden">
-          <div className="max-w-[1360px] mx-auto w-full px-6 sm:px-8 md:px-12 relative z-10">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
-              
-              {/* Left Column */}
-              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-12 lg:-mt-3">
-                <div className="space-y-6">
-                  <h2 
-                    className="block text-3xl sm:text-4xl md:text-[48px] tracking-tight text-white leading-[1.05] font-sans font-[250]"
-                  >
-                    Designing for Clinical Trust
-                  </h2>
-                  <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed max-w-lg">
-                    In life-and-death medicine, designers cannot larp with safety margins. Nurses and coordinators need absolute validation before any clinical change writes back to server databases:
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column */}
-              <div className="lg:col-span-7 lg:max-w-[calc(100%-80px)] lg:ml-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-                  {[
-                    {
-                      id: "01",
-                      label: "Pattern 01",
-                      title: "Dual-signoff logging verification"
-                    },
-                    {
-                      id: "02",
-                      label: "Pattern 02",
-                      title: "High-contrast clinical alert color flare"
-                    },
-                    {
-                      id: "03",
-                      label: "Pattern 03",
-                      title: "Swipe-to-commit physical intent"
-                    },
-                    {
-                      id: "04",
-                      label: "Pattern 04",
-                      title: "Local database auto-commit backup"
-                    }
-                  ].map((pattern, index) => (
-                    <motion.div
-                      key={pattern.id}
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-[#161616] hover:bg-[#1a1a1a] p-5 rounded-[8px] transition-all duration-300 flex flex-col justify-between min-h-[150px]"
-                    >
-                      <div className="text-[13px] text-neutral-500 font-sans tracking-wide">
-                        {pattern.label}
-                      </div>
-
-                      <div className="flex items-center text-[16px] sm:text-[18px] text-white font-light tracking-tight mt-auto leading-snug">
-                        <span className="inline-block w-2.5 h-2.5 rounded-full bg-white mr-3 shrink-0" />
-                        {pattern.title}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-            <div className="mt-16 md:mt-24 pt-8 border-t border-neutral-900 w-full">
-              <p className="text-[18px] md:text-[20px] text-center font-light leading-relaxed text-neutral-400">
-                These details proved essential to earning complete compliance approval from hospital pilot boards.
-              </p>
-            </div>
-
-          </div>
-        </section>
-      )}
+      
 
       {/* SECTION: MY CONTRIBUTION */}
       <section className="bg-[#ffffff] text-neutral-900 border-b border-neutral-200 py-24 md:py-32 font-sans relative overflow-hidden">
@@ -525,43 +323,14 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-24 gap-y-16 mt-16 md:mt-24">
             {/* Left Column */}
             <div className="space-y-16">
-              {(project.id === 'healthsync-mobile'
-                ? [
-                    {
-                      title: "End-to-End UX Leadership",
-                      text: "Led UX design across the end-to-end product experience"
-                    },
-                    {
-                      title: "User Flows & Architecture",
-                      text: "Defined user flows and interaction models"
-                    },
-                    {
-                      title: "AI-Assisted Workflows",
-                      text: "Designed AI-assisted scripting workflows"
-                    }
-                  ]
-                : [
-                    {
-                      title: "Shift Shadows & Audits",
-                      text: "Conducted 42 shadow-hours during high-pressure emergency department night shifts to isolate tactile user fatigue patterns."
-                    },
-                    {
-                      title: "Acuity Mapping Wireframes",
-                      text: "Designed simple grid models optimized to surface patient emergency level flags within the physical thumbreach."
-                    },
-                    {
-                      title: "Development Collaboration",
-                      text: "Partnered with technical team engineers to implement responsive Tailwind structures, reducing documentation lag."
-                    }
-                  ]
-              ).map((item, idx) => (
+              {project.metrics.map((item, idx) => (
                 <div key={idx} className="group">
                   <h3 className="text-xl font-normal text-neutral-900 tracking-tight">
-                    {item.title}
+                    {item.value}
                   </h3>
                   <div className="border-t border-neutral-200 group-hover:border-neutral-400 my-4 transition-colors duration-300" />
                   <p className="text-[15px] sm:text-[16px] text-neutral-600 font-light leading-relaxed max-w-xl">
-                    {item.text}
+                    {item.label}
                   </p>
                 </div>
               ))}
@@ -569,43 +338,14 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
 
             {/* Right Column */}
             <div className="space-y-16">
-              {(project.id === 'healthsync-mobile'
-                ? [
-                    {
-                      title: "Teleprompter & Recording",
-                      text: "Designed teleprompter-based recording experiences"
-                    },
-                    {
-                      title: "Sharing & Dashboards",
-                      text: "Designed sharing and dashboard experiences"
-                    },
-                    {
-                      title: "Strategic Stakeholder Alignment",
-                      text: "Collaborated with stakeholders and engineering teams throughout development"
-                    }
-                  ]
-                : [
-                    {
-                      title: "Continuous Timeline Hub",
-                      text: "Consolidated 7 scattered browser tabs into a chronologically grouped state log, eliminating documentation drift."
-                    },
-                    {
-                      title: "Strategic Impact Pitching",
-                      text: "Presented data-backed reduction in average vital log click frequencies to secure executive pilot funding."
-                    },
-                    {
-                      title: "Promotion Catalyst",
-                      text: "Recognized with a rapid team promotion from ux intern to full ux designer due to demonstrable business value."
-                    }
-                  ]
-              ).map((item, idx) => (
+              {project.outcomes.map((outcome, idx) => (
                 <div key={idx} className="group">
                   <h3 className="text-xl font-normal text-neutral-900 tracking-tight">
-                    {item.title}
+                    {outcome.split(': ')[0]}
                   </h3>
                   <div className="border-t border-neutral-200 group-hover:border-neutral-400 my-4 transition-colors duration-300" />
                   <p className="text-[15px] sm:text-[16px] text-neutral-600 font-light leading-relaxed max-w-xl">
-                    {item.text}
+                    {outcome.split(': ')[1]}
                   </p>
                 </div>
               ))}
@@ -630,31 +370,13 @@ export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: Cust
 
             {/* Right Column */}
             <div className="lg:col-span-8 space-y-10">
-              {project.id === 'healthsync-mobile' ? (
-                <>
-                  <p className="text-xl sm:text-2xl md:text-[24px] text-white font-light leading-relaxed tracking-tight">
-                    The most valuable insight from this project was that confidence is often a design problem rather than a user problem.
+              <div className="space-y-6">
+                {project.reflections.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} className={idx === 0 ? "text-xl sm:text-2xl md:text-[24px] text-white font-light leading-relaxed tracking-tight" : idx === 2 ? "text-base sm:text-lg text-[#3B6FD6] font-medium leading-relaxed" : "text-base sm:text-lg text-neutral-400 font-light leading-relaxed"}>
+                    {paragraph}
                   </p>
-                  <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed">
-                    Many users already possess the skills and experiences necessary to tell compelling professional stories. What they lack is structure, guidance, and a comfortable environment in which to present themselves.
-                  </p>
-                  <p className="text-base sm:text-lg text-[#3B6FD6] font-medium leading-relaxed">
-                    By reducing uncertainty throughout the process, the product helps users focus less on the mechanics of recording and more on communicating who they are.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="text-xl sm:text-2xl md:text-[24px] text-white font-light leading-relaxed tracking-tight">
-                    Healthcare design is a powerful equalizer. Real people's safety relies directly on the speed and reliability of our layouts.
-                  </p>
-                  <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed">
-                    Shadowing ward staff in person taught me to design for the physical world—stress, glare, interruptions, and tired fingers—rather than sterile office monitors.
-                  </p>
-                  <p className="text-base sm:text-lg text-[#3B6FD6] font-medium leading-relaxed">
-                    This project cemented my product philosophy: the highest form of UX is reducing user strain to preserve human energy where it matters most.
-                  </p>
-                </>
-              )}
+                ))}
+              </div>
             </div>
 
           </div>
