@@ -89,14 +89,25 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
 
     let targetProgress = 0;
     let smoothProgress = 0;
+    let lastDrawnProgress = -1;
 
     let canvasWidth = window.innerWidth;
     let canvasHeight = window.innerHeight;
     let centerX = canvasWidth / 2;
     let centerY = canvasHeight / 2 - 80;
 
+    let cachedParentTop = 0;
+    let cachedTotalScrollBudget = 0;
+
     const setupDimensions = () => {
       canvasWidth = containerRef.current ? containerRef.current.clientWidth : window.innerWidth;
+      
+      const parent = canvas?.closest('section');
+      if (parent) {
+        const rect = parent.getBoundingClientRect();
+        cachedParentTop = rect.top + window.scrollY;
+        cachedTotalScrollBudget = parent.offsetHeight - window.innerHeight;
+      }
       
       // Calculate dynamic scale factor based on container width to guarantee zero clipping (leave 32px side margins)
       const targetScaleWidth = canvasWidth - 32;
@@ -115,7 +126,8 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
         canvasHeight = window.innerHeight;
       }
       
-      const dpr = window.devicePixelRatio || 1;
+      // Cap DPR at 1.5 to save immense GPU fill rate on retina screens (looks retro anyway)
+      const dpr = Math.min(1.5, window.devicePixelRatio || 1);
       canvas.width = canvasWidth * dpr;
       canvas.height = canvasHeight * dpr;
       canvas.style.width = `${canvasWidth}px`;
@@ -217,14 +229,27 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
       }
 
       // Smooth scroll lerp (0.07 factor for fluid float)
-      smoothProgress += (targetProgress - smoothProgress) * 0.07;
+      if (Math.abs(targetProgress - smoothProgress) < 0.001) {
+        smoothProgress = targetProgress;
+      } else {
+        smoothProgress += (targetProgress - smoothProgress) * 0.07;
+      }
       if (onProgress) {
         onProgress(smoothProgress);
       }
 
+      if (smoothProgress === lastDrawnProgress) {
+        animationFrameId = requestAnimationFrame(drawFrame);
+        return;
+      }
+      lastDrawnProgress = smoothProgress;
+
       ctx.clearRect(0, 0, canvasWidth, canvasHeight);
       ctx.font = `${fontSize}px "JetBrains Mono", Courier, monospace`;
       ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle = "#F5F5F5";
+
+      let currentAlpha = -1;
 
       // Single, unified particle loop with zero branching transitions
       for (let i = 0; i < particles.length; i++) {
@@ -234,16 +259,28 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
         const t = Math.max(0, Math.min(1, (smoothProgress - p.startThreshold) / span));
 
         if (t === 0) {
-          continue;
+          continue; // Early cull for completely invisible particles
         }
 
         if (t === 1) {
-          ctx.fillStyle = `rgba(245, 245, 245, ${p.leftFeather})`;
+          const finalOpacity = p.leftFeather;
+          if (finalOpacity < 0.03) continue; // Cull near-invisible
+          
+          // Batch state changes (nearest 5%)
+          const batchedAlpha = Math.round(finalOpacity * 20) / 20;
+          if (currentAlpha !== batchedAlpha) {
+            ctx.globalAlpha = batchedAlpha;
+            currentAlpha = batchedAlpha;
+          }
+          
           ctx.fillText(p.char, p.homeX, p.homeY);
           continue;
         }
 
         const easedT = easeOutCubic(t);
+        const opacity = easedT * p.leftFeather;
+        
+        if (opacity < 0.03) continue; // Culling
 
         // Interpolate polar radius and angle
         const currentRadius = p.startRadius + (p.homeRadius - p.startRadius) * easedT;
@@ -253,11 +290,12 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
         const baselineX = centerX + Math.cos(currentAngle) * currentRadius;
         const baselineY = centerY + Math.sin(currentAngle) * currentRadius;
 
-        // Wave envelope and turbulence
-        const waveEnvelope = Math.sin(t * Math.PI);
-        const waveY = Math.sin(t * Math.PI * p.waveFreq + p.wavePhase) * p.waveAmp * waveEnvelope;
-        const turbX = Math.cos(t * Math.PI * p.turbSpeedX) * p.turbAmp * waveEnvelope;
-        const turbY = Math.sin(t * Math.PI * p.turbSpeedY) * p.turbAmp * waveEnvelope;
+        // Pre-calculate shared math
+        const tPi = t * Math.PI;
+        const waveEnvelope = Math.sin(tPi);
+        const waveY = Math.sin(tPi * p.waveFreq + p.wavePhase) * p.waveAmp * waveEnvelope;
+        const turbX = Math.cos(tPi * p.turbSpeedX) * p.turbAmp * waveEnvelope;
+        const turbY = Math.sin(tPi * p.turbSpeedY) * p.turbAmp * waveEnvelope;
 
         // Calculate coordinates (swirling around the spiral baseline)
         const currentX = baselineX + turbX;
@@ -267,25 +305,27 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
         const jitterX = p.staticJitterX * (1 - t);
         const jitterY = p.staticJitterY * (1 - t);
         
-        const opacity = easedT * p.leftFeather;
+        // Batch state changes (nearest 5%)
+        const batchedAlpha = Math.round(opacity * 20) / 20;
+        if (currentAlpha !== batchedAlpha) {
+          ctx.globalAlpha = batchedAlpha;
+          currentAlpha = batchedAlpha;
+        }
 
-        ctx.fillStyle = `rgba(245, 245, 245, ${opacity})`;
         ctx.fillText(p.char, currentX + jitterX, currentY + jitterY);
       }
+
+      // Reset alpha for safety
+      ctx.globalAlpha = 1.0;
 
       animationFrameId = requestAnimationFrame(drawFrame);
     };
 
     const handleScroll = () => {
-      const parent = canvas.closest('section');
-      if (!parent) return;
+      if (cachedTotalScrollBudget <= 0) return;
 
-      const rect = parent.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const totalScrollBudget = parent.offsetHeight - viewportHeight;
-      if (totalScrollBudget <= 0) return;
-
-      const scrollProgress = -rect.top / totalScrollBudget;
+      const currentRectTop = cachedParentTop - window.scrollY;
+      const scrollProgress = -currentRectTop / cachedTotalScrollBudget;
       const calculatedProgress = Math.max(0, Math.min(1, scrollProgress));
       
       // Compress animation completion into the first 72% of the scroll track,
@@ -293,11 +333,16 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
       targetProgress = Math.min(1, calculatedProgress / 0.72);
     };
 
+    let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      setupDimensions();
-      if (scrollDriven) {
-        handleScroll();
-      }
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        setupDimensions();
+        if (scrollDriven) {
+          handleScroll();
+        }
+        lastDrawnProgress = -1; // force redraw
+      }, 150);
     };
 
     if (scrollDriven) {
@@ -331,6 +376,7 @@ export default function AsciiArt({ asciiText, onProgress, heightMode = 'viewport
         window.removeEventListener('scroll', handleScroll);
       }
       window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
       observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };

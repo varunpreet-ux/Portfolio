@@ -78,34 +78,9 @@ export const PROJECTS: Project[] = [
     year: "2026",
     role: "Product / UX Designer",
     duration: "1.5 Months",
-    metrics: [
-      { value: "3x", label: "Creator Publishing Speedup" },
-      { value: "0", label: "In-Game Rules Search Interruption" },
-      { value: "<5 min", label: "Campaign Preparation Time" }
-    ],
     imageAlt: "AI-Powered Cinematic Creation Ecosystem Header",
     mockupUrl: "./assets/images/case-studies/evil-genius/Thumbnail.png",
-    overview: "Tabletop role-playing platforms have traditionally required significant effort from creators, players, and Game Masters. Creators spend hours converting content into platform-compatible formats, players frequently interrupt gameplay to search through hundreds of pages of rules, and Game Masters invest substantial time preparing campaigns, encounters, characters, and storylines before every session. To address these challenges, I designed a suite of AI-powered workflows that reduced preparation effort, improved information accessibility, and accelerated content creation across the platform.",
-    businessProblem: "The platform was being positioned as a modern cinematic alternative to traditional tabletop role-playing tools. The challenge was identifying areas where emerging AI capabilities could create genuine user value while helping the platform establish a differentiated market position. Business goals included increasing creator productivity, accelerating content publishing, reducing gameplay interruptions, improving campaign preparation workflows, and supporting future premium experiences.",
-    userProblem: "As I explored creator, player, and Game Master workflows, a recurring pattern emerged. Users were not looking for AI to replace creativity. They wanted AI to eliminate repetitive work. Across every workflow, users still wanted ownership over the final outcome. The opportunity was not automation; it was acceleration.",
-    research: {
-      approach: "Conducted contextual workflow research shadowing 12 Game Masters during active sessions, and audited the publishing friction experienced by indie creators translating rich PDF textbooks into structured platform formats.",
-      insights: [
-        "Users look for assistance with manual translation, formatting, in-session tables, and lore lookups rather than full story substitution.",
-        "Rule book referencing is the single biggest momentum killer during energetic gameplay sessions.",
-        "Transparent citations are mandatory; players and Game Masters do not trust AI unless they see exact page source references.",
-        "Visualizing characters using rich graphics is highly valued but restricted by art expertise or high outsource budgeting."
-      ]
-    },
-    designProcess: "Designed four distinct initiatives: AI-Assisted Publishing, AI-Powered Reference, AI-Assisted Character Visualization, and Adventure Hooks campaign pack synthesizer. Each section emphasizes a strict rule: 'Accelerate Creativity. Don't Replace It.'",
-    wireframesDescription: "Structured highly clean bento grids, layout columns, and contextual sidecards. Focused on interactive sandboxing, side-by-side editing, prompt modifiers, and clear multi-option galleries.",
-    solution: "An integrated suite of AI-driven creative helpers comprising: 1) AI-assisted book parsing, 2) in-game instant rule assistant with pinned side notes and source footnotes, 3) a custom character art engine integrating attribute data for tailored graphics, and 4) modular campaign hook synthesizers.",
-    outcomes: [
-      "Secured massive engagement from independent game publishers by streamlining formatting and data digitizing times from days to minutes.",
-      "Eliminated page-flipping delays during gameplay, allowing Game Masters to type organic rule questions and get cited reference pills in real-time.",
-      "Cultivated deep user personalization, allowing players without art design backgrounds to render and trade visual character and asset tokens instantly."
-    ],
-    reflections: "Designing AI experiences taught me that the most powerful solutions act as collaborator tools. By leaving editorial oversight and critical final choices strictly to the human player, we build genuine utility, loyalty, and platform ownership."
+    overview: "Tabletop role-playing platforms have traditionally required significant effort from creators, players, and Game Masters. Creators spend hours converting content into platform-compatible formats, players frequently interrupt gameplay to search through hundreds of pages of rules, and Game Masters invest substantial time preparing campaigns, encounters, characters, and storylines before every session. To address these challenges, I designed a suite of AI-powered workflows that reduced preparation effort, improved information accessibility, and accelerated content creation across the platform."
   },
   {
     id: "healthsync-mobile",
@@ -116,33 +91,8 @@ export const PROJECTS: Project[] = [
     year: "2024",
     role: "Lead UX Designer",
     duration: "2 Months",
-    metrics: [
-      { value: "End-to-End UX Leadership", label: "Led UX design across the end-to-end product experience" },
-      { value: "User Flows & Architecture", label: "Defined user flows and interaction models" },
-      { value: "AI-Assisted Workflows", label: "Designed AI-assisted scripting workflows" }
-    ],
     imageAlt: "HealthSync Mobile Interface Mockup",
     mockupUrl: "./assets/images/case-studies/personality-plus/Landing Page Before login wide.png",
-    overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes.",
-    businessProblem: "The hiring process remains heavily dependent on static documents.\n\nWhile resumes effectively communicate qualifications, they often fail to capture qualities that recruiters evaluate during interviews, including:",
-    userProblem: "Many users knew they wanted to introduce themselves professionally. Few knew how to structure their story or felt comfortable speaking directly to a camera.",
-    research: {
-      approach: "This creates a gap between application and interview stages. The opportunity was to help candidates communicate these qualities earlier in the hiring process without requiring recruiters to adopt entirely new workflows.",
-      insights: [
-        "Communication ability",
-        "Professional presence",
-        "Confidence",
-        "Personality"
-      ]
-    },
-    designProcess: "Rather than asking users to immediately record themselves, the experience was designed to progressively build confidence through guidance, preparation, and iteration.\n\nEvery feature supports this principle.",
-    wireframesDescription: "Build structured professional stories via interactive scripting helper systems, record securely using user-paced teleprompters, and publish with complete creative control.",
-    solution: "Evaluate complex communication, personality parameters, and user culture alignments inside 60 seconds of secure candidate-video playback.",
-    outcomes: [
-      "Teleprompter & Recording: Designed teleprompter-based recording experiences",
-      "Sharing & Dashboards: Designed sharing and dashboard experiences",
-      "Strategic Stakeholder Alignment: Collaborated with stakeholders and engineering teams throughout development"
-    ],
-    reflections: "The most valuable insight from this project was that confidence is often a design problem rather than a user problem.\n\nMany users already possess the skills and experiences necessary to tell compelling professional stories. What they lack is structure, guidance, and a comfortable environment in which to present themselves.\n\nBy reducing uncertainty throughout the process, the product helps users focus less on the mechanics of recording and more on communicating who they are."
+    overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes."
   }
 ];

@@ -86,7 +86,7 @@ export default function Navigation({ activePage, setActivePage, onNavigateHome }
             : 'bg-transparent py-5 md:py-6'
         }`}
       >
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 lg:px-0 w-full flex items-center justify-between">
+        <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 2xl:px-0 w-full flex items-center justify-between">
           
           {/* LEFT: Striped sphere logo and trademark typography */}
           <button

@@ -235,7 +235,16 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
 
       // Recalibrate layouts continuously on ScrollTrigger refreshes, orientation shifts or system resizes
       ScrollTrigger.addEventListener("refresh", updateGeometryCache);
-      window.addEventListener("resize", updateGeometryCache);
+      
+      let resizeTimer: ReturnType<typeof setTimeout>;
+      const handleResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          updateGeometryCache();
+          scrollTriggerInstance.update();
+        }, 150);
+      };
+      window.addEventListener("resize", handleResize);
 
       // Force instant updates so components don't flick on initial paint
       setTimeout(() => {
@@ -245,7 +254,8 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
 
       return () => {
         ScrollTrigger.removeEventListener("refresh", updateGeometryCache);
-        window.removeEventListener("resize", updateGeometryCache);
+        window.removeEventListener("resize", handleResize);
+        clearTimeout(resizeTimer);
         scrollTriggerInstance.kill();
       };
     });
@@ -311,7 +321,7 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
       {/* 4. FEATURED WORK */}
       <section id="case-studies" className="py-24 bg-[#f1f5f8]">
         <div 
-          className="mx-auto w-full max-w-[1360px] px-6 sm:px-8 md:px-12 lg:px-0"
+          className="mx-auto w-full max-w-[1360px] px-6 sm:px-8 md:px-12 2xl:px-0"
         >
           <div className="flex flex-col sm:flex-row justify-between items-baseline mb-28 w-full">
             <div>
@@ -433,7 +443,7 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
             />
           </div>
 
-          <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-0 w-full flex flex-col justify-start h-full relative z-10">
+          <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 2xl:px-0 w-full flex flex-col justify-start h-full relative z-10">
             
             {/* Section Header Statement - Capsule Pill style matching screenshot */}
             <div className="mb-12 w-full flex justify-between items-center">

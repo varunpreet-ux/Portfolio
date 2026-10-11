@@ -34,19 +34,19 @@ export interface Project {
   year: string;
   role: string;
   duration: string;
-  metrics: { value: string; label: string }[];
+  metrics?: { value: string; label: string }[];
   overview: string;
-  businessProblem: string;
-  userProblem: string;
-  research: {
+  businessProblem?: string;
+  userProblem?: string;
+  research?: {
     approach: string;
     insights: string[];
   };
-  designProcess: string;
-  wireframesDescription: string;
-  solution: string;
-  outcomes: string[];
-  reflections: string;
+  designProcess?: string;
+  wireframesDescription?: string;
+  solution?: string;
+  outcomes?: string[];
+  reflections?: string;
   imageAlt: string;
   mockupUrl?: string;
 }
