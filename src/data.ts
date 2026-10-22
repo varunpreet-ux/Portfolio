@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     overview: "Tabletop role-playing platforms have traditionally required significant effort from creators, players, and Game Masters. Creators spend hours converting content into platform-compatible formats, players frequently interrupt gameplay to search through hundreds of pages of rules, and Game Masters invest substantial time preparing campaigns, encounters, characters, and storylines before every session. To address these challenges, I designed a suite of AI-powered workflows that reduced preparation effort, improved information accessibility, and accelerated content creation across the platform."
   },
   {
-    id: "healthsync-mobile",
+    id: "personality-plus",
     title: "Personality Plus",
     subtitle: "Helping Job Seekers Present Themselves Beyond The Resume",
     tagline: "Designing an AI-assisted platform that helps candidates create, record, and share professional video introductions.",
@@ -91,8 +91,33 @@ export const PROJECTS: Project[] = [
     year: "2024",
     role: "Lead UX Designer",
     duration: "2 Months",
-    imageAlt: "HealthSync Mobile Interface Mockup",
+    metrics: [
+      { value: "End-to-End UX Leadership", label: "Led UX design across the end-to-end product experience" },
+      { value: "User Flows & Architecture", label: "Defined user flows and interaction models" },
+      { value: "AI-Assisted Workflows", label: "Designed AI-assisted scripting workflows" }
+    ],
+    imageAlt: "Personality Plus Interface Mockup",
     mockupUrl: "./assets/images/case-studies/personality-plus/Landing Page Before login wide.png",
-    overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes."
+    overview: "Resumes communicate experience.\n\nThey rarely communicate presence.\n\nMany candidates struggle to showcase communication skills, personality, and confidence during the early stages of the hiring process.\n\nPersonality Plus was created to bridge this gap through a guided experience that helps users craft, record, and share professional video introductions that complement traditional resumes.",
+    businessProblem: "The hiring process remains heavily dependent on static documents.\n\nWhile resumes effectively communicate qualifications, they often fail to capture qualities that recruiters evaluate during interviews, including:",
+    userProblem: "Many users knew they wanted to introduce themselves professionally. Few knew how to structure their story or felt comfortable speaking directly to a camera.",
+    research: {
+      approach: "This creates a gap between application and interview stages. The opportunity was to help candidates communicate these qualities earlier in the hiring process without requiring recruiters to adopt entirely new workflows.",
+      insights: [
+        "Communication ability",
+        "Professional presence",
+        "Confidence",
+        "Personality"
+      ]
+    },
+    designProcess: "Rather than asking users to immediately record themselves, the experience was designed to progressively build confidence through guidance, preparation, and iteration.\n\nEvery feature supports this principle.",
+    wireframesDescription: "Build structured professional stories via interactive scripting helper systems, record securely using user-paced teleprompters, and publish with complete creative control.",
+    solution: "Evaluate complex communication, personality parameters, and user culture alignments inside 60 seconds of secure candidate-video playback.",
+    outcomes: [
+      "Teleprompter & Recording: Designed teleprompter-based recording experiences",
+      "Sharing & Dashboards: Designed sharing and dashboard experiences",
+      "Strategic Stakeholder Alignment: Collaborated with stakeholders and engineering teams throughout development"
+    ],
+    reflections: "The most valuable insight from this project was that confidence is often a design problem rather than a user problem.\n\nMany users already possess the skills and experiences necessary to tell compelling professional stories. What they lack is structure, guidance, and a comfortable environment in which to present themselves.\n\nBy reducing uncertainty throughout the process, the product helps users focus less on the mechanics of recording and more on communicating who they are."
   }
 ];

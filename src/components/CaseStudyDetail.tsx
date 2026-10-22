@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import ArrowLaunch from './ArrowLaunch';
 import EvilGeniusSidekickCaseStudy from './EvilGeniusCaseStudy';
-import HealthSyncCaseStudy from './HealthSyncCaseStudy';
+import PersonalityPlusCaseStudy from './PersonalityPlusCaseStudy';
 import { motion } from 'motion/react';
 
 interface CaseStudyDetailProps {
@@ -20,9 +20,9 @@ export default function CaseStudyDetail({ project, onBack, mockupUrl }: CaseStud
     return <EvilGeniusSidekickCaseStudy project={project} onBack={onBack} mockupUrl={mockupUrl} />;
   }
 
-  // If this is the "HealthSync Mobile" (healthsync-mobile), render the custom immersive clinical tracking experience
-  if (project.id === 'healthsync-mobile') {
-    return <HealthSyncCaseStudy project={project} onBack={onBack} mockupUrl={mockupUrl} />;
+  // If this is "Personality Plus" (personality-plus), render the custom immersive experience
+  if (project.id === 'personality-plus') {
+    return <PersonalityPlusCaseStudy project={project} onBack={onBack} mockupUrl={mockupUrl} />;
   }
 
   // Fallback for regular case studies

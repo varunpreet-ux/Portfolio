@@ -388,7 +388,7 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
                       <p className="text-[16px] text-zinc-650 leading-relaxed font-sans font-light">
                         {project.id === 'finroute-ai' 
                           ? "Led full platform design and mockups, defining the visual language and user flows for a dynamic market launch."
-                          : project.id === 'healthsync-mobile'
+                          : project.id === 'personality-plus'
                           ? "Led user experience design, creating guided video-recording interfaces, integrated teleprompter systems, and accessible audio/video indicators."
                           : "Engineered multi-brand design tokens, standardizing colors, typography, grids and automated export systems."}
                       </p>
@@ -397,7 +397,7 @@ export default function Home({ onNavigateToPage, onSelectProject }: HomeProps) {
                   </div>
 
                   {/* 4. Large Featured Image Mockup inside container boundary with smooth interactive hover reveal */}
-                  <div className={`w-full max-w-[1200px] ${(project.id === 'finroute-ai' || project.id === 'healthsync-mobile') ? 'aspect-[1200/675]' : 'aspect-[1200/800]'} border border-zinc-200/80 bg-zinc-50 overflow-hidden rounded-xl relative shadow-3xs group/img mx-auto`}>
+                  <div className={`w-full max-w-[1200px] ${(project.id === 'finroute-ai' || project.id === 'personality-plus') ? 'aspect-[1200/675]' : 'aspect-[1200/800]'} border border-zinc-200/80 bg-zinc-50 overflow-hidden rounded-xl relative shadow-3xs group/img mx-auto`}>
                     <img
                       src={project.mockupUrl}
                       alt={project.imageAlt}

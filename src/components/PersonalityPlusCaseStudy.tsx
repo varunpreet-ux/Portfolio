@@ -2,8 +2,6 @@ import React from 'react';
 import { Project } from '../types';
 import { motion } from 'motion/react';
 import { ArrowLeft, ArrowRight, ShieldCheck, Check } from 'lucide-react';
-import HSCPlaygrounds from './HSCPlaygrounds';
-import EGPPlaygrounds from './EGPPlaygrounds';
 import PPPlaygrounds from './PPPlaygrounds';
 
 interface CustomProps {
@@ -12,7 +10,7 @@ interface CustomProps {
   mockupUrl?: string;
 }
 
-export default function HealthSyncCaseStudy({ project, onBack, mockupUrl }: CustomProps) {
+export default function PersonalityPlusCaseStudy({ project, onBack, mockupUrl }: CustomProps) {
   const displayImage = mockupUrl || "./assets/images/case-studies/personality-plus/regenerated_image_1781030760041.png";
 
   return (

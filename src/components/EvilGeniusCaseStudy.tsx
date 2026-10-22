@@ -322,27 +322,25 @@ export default function EvilGeniusSidekickCaseStudy({ project, onBack, mockupUrl
         </div>
       </section>
 
-      {/* SECTION 5: INTERACTIVE PROTOTOYPES PLATFORM (Interactive Carousel/Gallery cards in pitch dark matching the screenshot) */}
-      <section className="bg-[#111111] text-white py-12 md:py-32 border-b border-neutral-950 font-sans relative overflow-hidden">
+      {/* SECTION 5: FOUR WORKFLOWS, FOUR DESIGN DECISIONS */}
+      <section className="bg-[#111111] text-white pt-20 md:pt-32 pb-16 md:pb-28 border-b border-neutral-950 font-sans relative overflow-hidden">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-8 md:px-12 w-full">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start mb-8 md:mb-24">
-            <div className="lg:col-span-4 space-y-2">
-              <span className="block text-sm font-semibold tracking-tight text-white leading-snug">
-                Leveraging AI to Reduce Frictions
-              </span>
-              <span className="block text-sm font-light tracking-tight text-[#3B6FD6] leading-snug">
-                Accelerating Companion Experience
-              </span>
+          {/* SECTION INTRO */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start mb-16 md:mb-24">
+            <div className="lg:col-span-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-[250] tracking-tight text-white leading-tight">
+                Four workflows, four design decisions
+              </h2>
             </div>
-            <div className="lg:col-span-8">
-              <p className="text-xl sm:text-2xl md:text-[32px] font-[300] tracking-tight text-white/95 leading-[1.3] max-w-4xl">
-                Four AI-powered workflows that transformed hours of manual preparation into seconds of automated creation.
+            <div className="lg:col-span-8 lg:pt-3">
+              <p className="text-xl sm:text-2xl font-[300] tracking-tight text-neutral-300 leading-relaxed max-w-4xl">
+                Integrating AI into tabletop gameplay and publishing required solving distinct friction points with deliberate interaction trade-offs. Rather than black-box automation, each workflow was shaped to accelerate progress while preserving user verification, creative ownership, and editorial control.
               </p>
             </div>
           </div>
 
-          {/* PLAYGROUND CAROUSEL EMBED */}
+          {/* FOUR EDITORIAL CHAPTERS */}
           <EGPPlaygrounds />
 
         </div>
